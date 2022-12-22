@@ -1,0 +1,33 @@
+.content_navBar {
+  top: 0px;
+  /* position: fixed; */
+
+  width: 100%;
+  opacity: 2;
+  display: flex;
+  /* margin-bottom: 200px; */
+}
+
+.ul_navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style: none;
+}
+
+.create_recipe_button {
+  background-color: rgb(190, 190, 7);
+  color: black;
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+.create_recipe_button:hover {
+  background-color: rgb(226, 226, 3);
+  color: rgb(0, 0, 0);
+}

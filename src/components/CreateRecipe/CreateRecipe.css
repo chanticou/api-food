@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  background: rgb(240, 235, 235);
+  flex-direction: column;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  padding: 50px 0;
+  width: 500px;
+}
+.form_name {
+  width: 200px;
+}
+.form_image {
+  color: rgb(8, 8, 8);
+  padding: 10px;
+  width: 200px;
+}
+.form_preparation_time {
+  color: rgb(8, 8, 8);
+  width: 200px;
+}
+.user_name {
+  color: rgb(10, 10, 10);
+  padding: 10px;
+}
+
+.form_message {
+  color: rgb(21, 22, 22);
+  padding: 20px;
+}
+
+.form_name_label {
+  font-size: 20px;
+  color: rgb(15, 15, 15);
+}
+
+.form_email_label {
+  font-size: 20px;
+  color: rgb(12, 12, 12);
+}
+
+.form_message_label {
+  font-size: 20px;
+  color: rgb(17, 16, 16);
+}
+
+.form_error {
+  color: red;
+}
