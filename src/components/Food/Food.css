@@ -1,0 +1,29 @@
+.food_content {
+  display: flex;
+  color: rgb(7, 7, 7);
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  width: 300px;
+  border-radius: 5px;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.food_content h1 {
+  color: brown;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.food_content img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+}
+
+.link_food {
+  list-style: none;
+  text-decoration: none;
+}

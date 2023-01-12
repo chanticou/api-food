@@ -1,0 +1,39 @@
+.content_form {
+  background: rgb(240, 235, 235);
+}
+
+.form_create_user {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 100px;
+  padding: 50px 0;
+  width: px;
+  align-items: center;
+}
+
+input {
+  padding: 10px 20px;
+}
+/* 
+.form_userName {
+  width: 200px;
+}
+.form_image {
+  color: rgb(8, 8, 8);
+  padding: 10px;
+  width: 200px;
+}
+.form_email {
+  color: rgb(8, 8, 8);
+  width: 200px;
+}
+.user_name {
+  color: rgb(10, 10, 10);
+  padding: 10px;
+}
+
+.form_password {
+  color: rgb(21, 22, 22);
+  padding: 20px;
+} */

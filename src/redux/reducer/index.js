@@ -3,7 +3,9 @@ import * as actions from "../action_types.js";
 const initialState = {
   allFoods: [],
   filterAllFoods: [],
-  searchWord: [],
+  foodDetail: {},
+  users: [],
+  user: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -20,6 +22,28 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         filterAllFoods: action.payload,
       };
+
+    case actions.ORDER_ALPHABETIC:
+      return {
+        ...state,
+        filterAllFoods: action.payload,
+      };
+
+    case actions.GET_FOOD_BY_ID:
+      return {
+        foodDetail: action.payload,
+      };
+
+    case actions.CREATE_USER:
+      return {
+        users: action.payload,
+      };
+
+    case actions.LOGIN_USER:
+      return {
+        user: action.payload,
+      };
+
     default:
       return state;
   }

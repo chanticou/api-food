@@ -1,0 +1,17 @@
+.content_form {
+  background: rgb(240, 235, 235);
+}
+
+.form_create_user {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 100px;
+  padding: 50px 0;
+  width: px;
+  align-items: center;
+}
+
+input {
+  padding: 10px 20px;
+}

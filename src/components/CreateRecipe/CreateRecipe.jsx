@@ -1,38 +1,16 @@
 import React, { useRef } from "react";
-// import emailjs from "@emailjs/browser";
+import swal from "sweetalert";
 import "./CreateRecipe.css";
 import { useState } from "react";
-// ES6 Modules or TypeScript
-// import Swal from "sweetalert2";
-// import { NavBar } from "../NavBar/NavBar";
 import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import {
-  getAllFoods,
-  // filterGetAllFoods,
-  searchByWord,
-} from "../../redux/actions";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 export const CreateRecipe = () => {
-  const dispatch = useDispatch();
-  const { allFoods, filterAllFoods } = useSelector((state) => state);
   const [errors, setErrors] = useState(true);
-  const [flat, setFlat] = useState(true);
-
-  // useEffect(() => {
-  //   filterAllFoods.payload && dispatch(filterGetAllFoods());
-  //   allFoods.payload && dispatch(getAllFoods());
-
-  //   // dispatch(filterGetAllFoods());
-  //   // dispatch(getAllFoods());
-  //   // filterGetAllFoods.length &&
-  //   //   dispatch(searchByWord(input, filterAllFoods, allFoods));
-  // }, [dispatch]);
-
-  console.log(filterAllFoods);
-
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state);
+  console.log(user);
   const [input, setInput] = useState({
     title: "",
     photo: "",
@@ -45,15 +23,15 @@ export const CreateRecipe = () => {
       ...input,
       [e.target.name]: e.target.value,
     });
+    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    postData({ ...input });
+    postData(input);
   };
 
-  const postData = async (formData) => {
+  const postData = async (input) => {
     try {
       if (
         !input.title ||
@@ -63,21 +41,28 @@ export const CreateRecipe = () => {
       ) {
         setErrors(false);
       } else {
-        setErrors(true);
-        await axios
-          .post("http://localhost:3001/createRecipe", formData)
-          .then((res) => {
-            dispatch(getAllFoods());
-          })
-          .catch((err) => console.log(err));
-        // setErrors(true);
+        if (user?.data) {
+          setErrors(true);
 
-        setInput({
-          title: "",
-          photo: "",
-          preparationTime: "",
-          ingredients: "",
-        });
+          await axios.post("http://localhost:4000/createRecipe", input);
+
+          setInput({
+            title: "",
+            photo: "",
+            preparationTime: "",
+            ingredients: "",
+          });
+
+          swal({
+            title: "Su receta fue creada con exito!",
+          });
+          navigate("/");
+        } else {
+          swal({
+            title: "Necesitas estar logueado!",
+          });
+          navigate("/login");
+        }
       }
     } catch (err) {
       console.log(err);

@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllFoods, searchByWord } from "../../redux/actions/index";
+import {
+  getAllFoods,
+  searchByWord,
+  orderAlphabetic,
+} from "../../redux/actions/index";
 import { Food } from "../Food/Food";
+import { Spinner } from "../Spinner/Spinner";
 import { SearchByName } from "../SearchByName/SearchByName";
+import "./Foods_container.css";
 
 export const Foods_container = () => {
   const [input, setInput] = useState({ name: "" });
@@ -13,7 +19,7 @@ export const Foods_container = () => {
 
   useEffect(() => {
     dispatch(getAllFoods());
-  }, [JSON.stringify(allFoods).length]);
+  }, []);
 
   const handleChange = (e) => {
     setInput({
@@ -25,12 +31,24 @@ export const Foods_container = () => {
 
   return (
     <>
+      <select
+        onChange={(e) =>
+          dispatch(orderAlphabetic(filterAllFoods, e.target.value))
+        }
+      >
+        <option>De la A a la Z</option>
+        <option>A-Z</option>
+        <option>Z-A</option>
+      </select>
+
       <SearchByName handleChange={handleChange} />
-      {!filterAllFoods?.length ? (
-        <h1>No hay datos</h1>
-      ) : (
-        filterAllFoods?.map((el) => <Food key={el.id_recipe} data={el} />)
-      )}
+      <div className="food_container_content_cards">
+        {!filterAllFoods?.length ? (
+          <Spinner />
+        ) : (
+          filterAllFoods?.map((el) => <Food key={el.id_recipe} data={el} />)
+        )}
+      </div>
     </>
   );
 };
