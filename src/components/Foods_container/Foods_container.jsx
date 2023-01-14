@@ -31,17 +31,19 @@ export const Foods_container = () => {
 
   return (
     <>
-      <select
-        onChange={(e) =>
-          dispatch(orderAlphabetic(filterAllFoods, e.target.value))
-        }
-      >
-        <option>De la A a la Z</option>
-        <option>A-Z</option>
-        <option>Z-A</option>
-      </select>
-
-      <SearchByName handleChange={handleChange} />
+      <div className="content_foods_container">
+        <SearchByName handleChange={handleChange} />
+        <select
+          className="option_button"
+          onChange={(e) =>
+            dispatch(orderAlphabetic(filterAllFoods, e.target.value))
+          }
+        >
+          <option>De la A a la Z</option>
+          <option>A-Z</option>
+          <option>Z-A</option>
+        </select>
+      </div>
       <div className="food_container_content_cards">
         {!filterAllFoods?.length ? (
           <Spinner />

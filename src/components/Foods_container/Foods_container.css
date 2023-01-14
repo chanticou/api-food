@@ -1,3 +1,13 @@
+.content_foods_container {
+  display: flex;
+  flex-direction: row;
+  width: 50;
+  margin: 18px;
+  align-items: self-end;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .food_container_content_cards {
   display: flex;
   flex-direction: row;
@@ -5,4 +15,14 @@
   justify-content: center;
   align-items: center;
   gap: 20px 5px;
+}
+.button_searchByName {
+  margin-left: 10px;
+  height: 47px;
+  border-radius: 5px;
+}
+
+.option_button {
+  height: 47px;
+  border-radius: 5px;
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import imageUser from "../../assets/images/loguin.jpg";
@@ -9,8 +8,9 @@ import "./NavBar.css";
 import { useState } from "react";
 
 export const NavBar = () => {
+  const { loginWithRedirect, logout, isLoading } = useAuth0();
+
   const { userdb } = useSelector((state) => state);
-  const { loginWithRedirect } = useAuth0();
   const { user, isAuthenticated } = useAuth0();
   const [mouseOver, setMouseOver] = useState({});
 
@@ -66,18 +66,32 @@ export const NavBar = () => {
               <li>Login</li>
             </Link>
           )}
+
           {isAuthenticated ? (
-            <div className="content_auth_0">
-              <img
-                onMouseOver={(e) => handleMouseOver(e)}
-                onMouseOut={() => handleMouseOut()}
-                className="image_auth_0"
-                src={user.picture}
-              ></img>
-              <p>{mouseOver.user?.email}</p>
+            <div
+              onMouseOver={(e) => handleMouseOver(e)}
+              onMouseOut={() => handleMouseOut()}
+              className="content_auth_0"
+            >
+              <div className="content_image">
+                <button className="logout_button" onClick={() => logout()}>
+                  Logout
+                </button>
+                <img className="image_auth_0" src={user.picture}></img>
+              </div>
+
+              <div className="onMouseOver">
+                <span>{mouseOver.user?.given_name}</span>
+                <span>{mouseOver.user?.email}</span>
+              </div>
             </div>
           ) : (
-            <button onClick={() => loginWithRedirect()}>Login email</button>
+            <button
+              className="logout_button"
+              onClick={() => loginWithRedirect()}
+            >
+              Login email
+            </button>
           )}
         </ul>
       </div>
