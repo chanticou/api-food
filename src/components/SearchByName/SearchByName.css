@@ -1,4 +1,12 @@
-.button_searchbyName {
+/* .button_searchbyName {
   height: 47px;
   border-radius: 5px;
+  background-color: transparent;
+  margin-top: 10px;
+} */
+
+.contet_search_input {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }

@@ -6,6 +6,7 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { CreateUser } from "./components/CreateUser/CreateUser";
 import { Login } from "./components/Login/Login";
 import { Home } from "./components/Home/Home";
+import { CartContainer } from "./components/CartContainer/CartContainer";
 
 function App() {
   return (
@@ -44,19 +45,27 @@ function App() {
             </>
           }
         />
-        <Route
+        {/* <Route
           path="/createUser"
           element={
             <>
               <CreateUser />
             </>
           }
-        />
+        /> */}
         <Route
           path="/login"
           element={
             <>
               <Login />
+            </>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <>
+              <CartContainer />
             </>
           }
         />

@@ -1,0 +1,11 @@
+.cart_button {
+  cursor: pointer;
+
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.cart_button:hover {
+  color: #003a71;
+  cursor: pointer;
+}

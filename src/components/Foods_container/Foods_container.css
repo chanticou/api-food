@@ -1,21 +1,53 @@
+.content_inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
 .content_foods_container {
   display: flex;
   flex-direction: row;
-  width: 50;
+  justify-content: space-around;
+  /* width: 50;
   margin: 18px;
   align-items: self-end;
   justify-content: space-around;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+}
+.option_button {
+  color: #003a71;
+}
+.content_fiters {
+  display: flex;
+  height: 250px;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: inherit;
+  margin-top: 50px;
+  /* width: 450px; */
 }
 
 .food_container_content_cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 50px;
   justify-content: center;
   align-items: center;
-  gap: 20px 5px;
+  gap: 85px 65px;
+  /* gap: 33px 35px;
+   */
+  /* background-color: #f3f3f3; */
+
+  /* flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 57px 89px;
+  background-color: #f3f3f3;
+  padding: 47px; */
 }
+
 .button_searchByName {
   margin-left: 10px;
   height: 47px;
@@ -23,6 +55,17 @@
 }
 
 .option_button {
-  height: 47px;
-  border-radius: 5px;
+  height: 37px;
+  border-radius: 2px;
+}
+
+.filter_button {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  color: #003a71;
+}
+.filter_button:hover {
+  font-weight: bold;
+  color: #011e38;
 }

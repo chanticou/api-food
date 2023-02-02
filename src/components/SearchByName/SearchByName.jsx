@@ -1,3 +1,4 @@
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./SearchByName.css";
 
 export const SearchByName = ({ handleChange }) => {
@@ -5,10 +6,14 @@ export const SearchByName = ({ handleChange }) => {
     <>
       {/* FILTRADO POR PALABRAS */}
       <form onSubmit={(e) => e.preventDefault()}>
-        <label>Buscar por nombre</label>
-        <div className="content_form">
-          <input onChange={(e) => handleChange(e)} type="text" name="name" />
-          <input className="button_searchByName" type="submit" value="Submit" />
+        <div className="contet_search_input">
+          <input
+            placeholder="Buscar por nombre..."
+            onChange={(e) => handleChange(e)}
+            type="text"
+            name="name"
+          />
+          <SearchOutlinedIcon type="submit" value="Submit" />
         </div>
       </form>
     </>
